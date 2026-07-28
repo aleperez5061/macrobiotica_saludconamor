@@ -3,11 +3,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 
-// Importación de las rutas (Endpoints)
+// Importación de las rutas (Endpoints) — ya existentes
 const clienteRoutes = require('./routes/clienteRoutes');
 const encuestaRoutes = require('./routes/encuestaRoutes');
 const respuestaRoutes = require('./routes/respuestaRoutes');
 const reporteRoutes = require('./routes/reporteRoutes');
+
+// Importación de las rutas nuevas
+const categoriaRoutes = require('./routes/categoriaRoutes');
+const rolRoutes = require('./routes/rolRoutes');
+const sucursalRoutes = require('./routes/sucursalRoutes');
+const productoRoutes = require('./routes/productoRoutes');
+const empleadoRoutes = require('./routes/empleadoRoutes');
+const preguntaRoutes = require('./routes/preguntaRoutes');
+const bitacoraRoutes = require('./routes/bitacoraRoutes');
+const feedbackRoutes = require('./routes/feedbackRoutes');
 
 const app = express();
 
@@ -23,6 +33,16 @@ app.use('/api/clientes', clienteRoutes);
 app.use('/api/encuestas', encuestaRoutes);
 app.use('/api/respuestas', respuestaRoutes);
 app.use('/api/reportes', reporteRoutes);
+
+// Rutas nuevas
+app.use('/api/categorias', categoriaRoutes);
+app.use('/api/roles', rolRoutes);
+app.use('/api/sucursales', sucursalRoutes);
+app.use('/api/productos', productoRoutes);
+app.use('/api/empleados', empleadoRoutes);
+app.use('/api/preguntas', preguntaRoutes);
+app.use('/api/bitacora', bitacoraRoutes);
+app.use('/api/feedback', feedbackRoutes);
 
 // 4. Configuración del puerto y encendido del servidor
 const PORT = process.env.PORT || 5000;

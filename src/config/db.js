@@ -3,13 +3,12 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        // Conexión a la base de datos del proyecto grupal
-        await mongoose.connect('mongodb://localhost:27017/MacrobioticaSaludConAmor');
-        console.log('MongoDB: Conexión exitosa a Macrobiótica Salud con Amor');
+        await mongoose.connect('mongodb://macrobiotica_team:Macrobiotica2026@ac-ytefmyd-shard-00-00.vizmwrf.mongodb.net:27017,ac-ytefmyd-shard-00-01.vizmwrf.mongodb.net:27017,ac-ytefmyd-shard-00-02.vizmwrf.mongodb.net:27017/DatosNoSQL?ssl=true&replicaSet=atlas-2daljo-shard-0&authSource=admin&retryWrites=true&w=majority&appName=MacrobioticaCluster');
+        console.log('MongoDB Atlas: conexión exitosa');
     } catch (err) {
-        // Muestra el error en consola y detiene el proceso si falla la conexión
-        console.error('Error de conexión:', err.message);
+        console.error('Error de conexión a MongoDB Atlas:', err.message);
         process.exit(1);
     }
 };
+
 module.exports = connectDB;
