@@ -26,6 +26,7 @@ connectDB(); // Invoca la función definida en src/config/db.js [3]
 
 // 2. Middleware para procesar datos JSON en las peticiones [3, 5]
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 // 3. Registro de Rutas Base [2, 4]
 // Cada una mapea las URLs que usarás en Postman

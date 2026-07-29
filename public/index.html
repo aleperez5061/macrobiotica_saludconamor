@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Macrobiótica Salud con Amor</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo">💚</div>
+                <div class="brand-name">
+                    <span>Salud con Amor</span>
+                    <small>Macrobiótica</small>
+                </div>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="#" class="menu-item active" data-view="clientes">
+                    <span class="menu-icon">👥</span> Clientes
+                </a>
+                <a href="#" class="menu-item" data-view="categorias">
+                    <span class="menu-icon">🏷️</span> Categorías
+                </a>
+                <a href="#" class="menu-item" data-view="productos">
+                    <span class="menu-icon">📦</span> Productos
+                </a>
+                <a href="#" class="menu-item" data-view="sucursales">
+                    <span class="menu-icon">🏬</span> Sucursales
+                </a>
+                <a href="#" class="menu-item" data-view="roles">
+                    <span class="menu-icon">🔑</span> Roles
+                </a>
+                <a href="#" class="menu-item" data-view="empleados">
+                    <span class="menu-icon">💼</span> Empleados
+                </a>
+                <a href="#" class="menu-item" data-view="preguntas">
+                    <span class="menu-icon">❓</span> Preguntas
+                </a>
+                <a href="#" class="menu-item" data-view="encuestas">
+                    <span class="menu-icon">📝</span> Encuestas
+                </a>
+                <a href="#" class="menu-item" data-view="feedback">
+                    <span class="menu-icon">💬</span> Feedback Directo
+                </a>
+                <a href="#" class="menu-item" data-view="bitacora">
+                    <span class="menu-icon">📋</span> Bitácora
+                </a>
+                <a href="#" class="menu-item" data-view="reportes">
+                    <span class="menu-icon">📊</span> Reportes y Estadísticas
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-info">
+                    <h1 id="view-title">Clientes</h1>
+                    <p id="view-description">Administra la información de los clientes registrados.</p>
+                </div>
+                <div class="header-actions" id="header-actions">
+                    <button class="btn btn-primary" id="btn-add-new">
+                        <span class="btn-icon">+</span> Agregar Nuevo
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <!-- Notifications Toast Container -->
+                <div id="toast-container"></div>
+
+                <!-- Dynamic View Container -->
+                <div id="dynamic-container" class="fade-in">
+                    <!-- Tables/Cards load dynamically here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Generic Modal for Forms (Create / Edit) -->
+    <div class="modal-overlay" id="generic-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modal-title">Agregar Nuevo</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="generic-form">
+                    <div id="form-fields-container">
+                        <!-- Dynamic fields based on view will be generated here -->
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="btn-modal-cancel">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" id="btn-modal-submit">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Extra Modal for Answering Survey / Generating Report -->
+    <div class="modal-overlay" id="survey-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="survey-modal-title">Responder Encuesta</h3>
+                <button class="modal-close" id="survey-modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="survey-form">
+                    <input type="hidden" id="survey-id-input">
+                    <div id="survey-questions-container">
+                        <!-- Questions with 1-5 rating inputs will load here -->
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="btn-survey-cancel">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Registrar Respuestas</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
