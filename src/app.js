@@ -1,6 +1,8 @@
 // src/app.js
+
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const connectDB = require('./config/db');
 
 // Importación de las rutas (Endpoints) — ya existentes
@@ -22,14 +24,21 @@ const feedbackRoutes = require('./routes/feedbackRoutes');
 const app = express();
 
 // 1. Conectar a la base de datos MacrobioticaSaludConAmor
-connectDB(); // Invoca la función definida en src/config/db.js [3]
+connectDB();
 
-// 2. Middleware para procesar datos JSON en las peticiones [3, 5]
+// 2. Middleware para procesar datos JSON en las peticiones
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// 3. Registro de Rutas Base [2, 4]
-// Cada una mapea las URLs que usarás en Postman
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/encuesta.html'));
+});
+
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+// 3. Registro de Rutas Base
 app.use('/api/clientes', clienteRoutes);
 app.use('/api/encuestas', encuestaRoutes);
 app.use('/api/respuestas', respuestaRoutes);

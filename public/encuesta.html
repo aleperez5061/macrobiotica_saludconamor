@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta - Macrobiótica Salud con Amor</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo">💚</div>
+
+                <div class="brand-name">
+                    <span>Salud con Amor</span>
+                    <small>Macrobiótica</small>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="/" class="menu-item active">
+                    <span class="menu-icon">📝</span> Encuesta
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-info">
+                    <h1>Encuesta de satisfacción</h1>
+
+                    <p>
+                        Califique cada pregunta en una escala del 1 al 5.
+                    </p>
+                </div>
+            </header>
+
+            <div class="content-body">
+
+                <!-- Notifications Toast Container -->
+                <div id="toast-container"></div>
+
+                <div class="fade-in">
+
+                    <div class="table-card">
+                        <form id="survey-form">
+
+                            <input type="hidden" id="survey-id-input">
+
+                            <div class="survey-introduction">
+                                <h2>Su opinión es importante</h2>
+
+                                <p>
+                                    Seleccione una respuesta para cada pregunta.
+                                    El número 1 representa la calificación más baja
+                                    y el número 5 la más alta.
+                                </p>
+                            </div>
+
+                            <div id="survey-questions-container">
+                                <p>Cargando preguntas...</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="survey-comment">
+                                    Comentarios adicionales
+                                </label>
+
+                                <textarea id="survey-comment"
+                                          rows="5"
+                                          maxlength="500"
+                                          placeholder="Escriba aquí sus comentarios o recomendaciones"></textarea>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit"
+                                        class="btn btn-primary"
+                                        id="btn-survey-submit">
+                                    Registrar respuestas
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="encuesta.js"></script>
+</body>
+</html>
