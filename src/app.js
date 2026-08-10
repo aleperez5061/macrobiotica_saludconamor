@@ -28,8 +28,9 @@ connectDB();
 
 // 2. Middleware para procesar datos JSON en las peticiones
 app.use(bodyParser.json());
-app.use(express.static('public'));
 
+// La raíz carga primero la encuesta de satisfacción antes que el contenido estático,
+// para que al ingresar a la página se muestre la encuesta para dar feedback.
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/encuesta.html'));
 });
@@ -37,6 +38,8 @@ app.get('/', (req, res) => {
 app.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 });
+
+app.use(express.static('public'));
 
 // 3. Registro de Rutas Base
 app.use('/api/clientes', clienteRoutes);

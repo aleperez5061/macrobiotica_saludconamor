@@ -22,7 +22,25 @@
                 </div>
             </div>
             <nav class="sidebar-menu">
-                <a href="#" class="menu-item active" data-view="clientes">
+                <div class="sidebar-section-title">Encuestas y Feedback</div>
+                <a href="#" class="menu-item active" data-view="preguntas">
+                    <span class="menu-icon">❓</span> Preguntas
+                </a>
+                <a href="#" class="menu-item" data-view="encuestas">
+                    <span class="menu-icon">📝</span> Encuestas
+                </a>
+                <a href="#" class="menu-item" data-view="feedback">
+                    <span class="menu-icon">💬</span> Feedback Directo
+                </a>
+                <a href="#" class="menu-item" data-view="reportes">
+                    <span class="menu-icon">📊</span> Reportes y Estadísticas
+                </a>
+                <a href="#" class="menu-item" data-view="bitacora">
+                    <span class="menu-icon">📋</span> Bitácora
+                </a>
+
+                <div class="sidebar-section-title">Catálogo</div>
+                <a href="#" class="menu-item" data-view="clientes">
                     <span class="menu-icon">👥</span> Clientes
                 </a>
                 <a href="#" class="menu-item" data-view="categorias">
@@ -34,26 +52,13 @@
                 <a href="#" class="menu-item" data-view="sucursales">
                     <span class="menu-icon">🏬</span> Sucursales
                 </a>
+
+                <div class="sidebar-section-title">Gestión de Usuarios</div>
                 <a href="#" class="menu-item" data-view="roles">
                     <span class="menu-icon">🔑</span> Roles
                 </a>
                 <a href="#" class="menu-item" data-view="empleados">
                     <span class="menu-icon">💼</span> Empleados
-                </a>
-                <a href="#" class="menu-item" data-view="preguntas">
-                    <span class="menu-icon">❓</span> Preguntas
-                </a>
-                <a href="#" class="menu-item" data-view="encuestas">
-                    <span class="menu-icon">📝</span> Encuestas
-                </a>
-                <a href="#" class="menu-item" data-view="feedback">
-                    <span class="menu-icon">💬</span> Feedback Directo
-                </a>
-                <a href="#" class="menu-item" data-view="bitacora">
-                    <span class="menu-icon">📋</span> Bitácora
-                </a>
-                <a href="#" class="menu-item" data-view="reportes">
-                    <span class="menu-icon">📊</span> Reportes y Estadísticas
                 </a>
             </nav>
         </aside>
@@ -101,6 +106,19 @@
                         <button type="submit" class="btn btn-primary" id="btn-modal-submit">Guardar</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visual Report Modal -->
+    <div class="modal-overlay" id="report-modal">
+        <div class="modal-card report-modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title" id="report-modal-title">Reporte de Satisfacción</h3>
+                <button class="modal-close" id="report-modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="report-modal-body">
+                <!-- Visual content generated here -->
             </div>
         </div>
     </div>

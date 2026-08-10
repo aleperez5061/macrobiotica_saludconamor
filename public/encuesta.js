@@ -5,6 +5,10 @@ const commentInput = document.getElementById('survey-comment');
 const submitButton = document.getElementById('btn-survey-submit');
 const toastContainer = document.getElementById('toast-container');
 
+const directFeedbackForm = document.getElementById('direct-feedback-form');
+const directFeedbackComment = document.getElementById('direct-feedback-comment');
+const directFeedbackSubmit = document.getElementById('btn-direct-feedback-submit');
+
 let encuestaActiva = null;
 let preguntasEncuesta = [];
 
@@ -129,6 +133,10 @@ surveyForm.addEventListener('submit', async event => {
     submitButton.disabled = true;
     submitButton.textContent = 'Enviando...';
 
+    // Identificador único del envío: agrupa todas las respuestas de este
+    // participante para que el reporte cuente 1 participante, no 1 por pregunta.
+    const intentoId = crypto.randomUUID();
+
     try {
         for (const respuesta of respuestas) {
             const response = await fetch('/api/respuestas', {
@@ -139,7 +147,8 @@ surveyForm.addEventListener('submit', async event => {
                 body: JSON.stringify({
                     encuesta_id: encuestaActiva._id,
                     pregunta_id: respuesta.pregunta_id,
-                    valor: respuesta.valor
+                    valor: respuesta.valor,
+                    intento_id: intentoId
                 })
             });
 
@@ -192,3 +201,49 @@ function mostrarMensaje(mensaje, tipo) {
         toastContainer.innerHTML = '';
     }, 4000);
 }
+
+directFeedbackForm.addEventListener('submit', async event => {
+    event.preventDefault();
+
+    const comentario = directFeedbackComment.value.trim();
+
+    if (comentario === '') {
+        mostrarMensaje(
+            'Escriba un comentario antes de enviar.',
+            'error'
+        );
+
+        return;
+    }
+
+    directFeedbackSubmit.disabled = true;
+    directFeedbackSubmit.textContent = 'Enviando...';
+
+    try {
+        const response = await fetch('/api/feedback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                comentario: comentario
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('No se pudo enviar el feedback.');
+        }
+
+        directFeedbackForm.reset();
+
+        mostrarMensaje(
+            'Gracias. Su feedback fue enviado correctamente.',
+            'success'
+        );
+    } catch (error) {
+        mostrarMensaje(error.message, 'error');
+    } finally {
+        directFeedbackSubmit.disabled = false;
+        directFeedbackSubmit.textContent = 'Enviar feedback';
+    }
+});

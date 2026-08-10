@@ -13,25 +13,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
+    <header class="survey-topbar">
+        <div class="survey-topbar-brand">
+            <div class="brand-logo">💚</div>
 
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar-brand">
-                <div class="brand-logo">💚</div>
-
-                <div class="brand-name">
-                    <span>Salud con Amor</span>
-                    <small>Macrobiótica</small>
-                </div>
+            <div class="brand-name">
+                <span>Salud con Amor</span>
+                <small>Macrobiótica</small>
             </div>
+        </div>
+    </header>
 
-            <nav class="sidebar-menu">
-                <a href="/" class="menu-item active">
-                    <span class="menu-icon">📝</span> Encuesta
-                </a>
-            </nav>
-        </aside>
+    <div class="app-container">
 
         <!-- Main Content -->
         <main class="main-content">
@@ -90,6 +83,38 @@
                                 </button>
                             </div>
 
+                        </form>
+                    </div>
+
+                    <div class="table-card feedback-direct-card">
+                        <div class="survey-introduction">
+                            <h2>Feedback directo</h2>
+
+                            <p>
+                                ¿Tiene algo que decirnos sin responder la encuesta?
+                                Comparta aquí una sugerencia, queja o comentario.
+                            </p>
+                        </div>
+
+                        <form id="direct-feedback-form">
+                            <div class="form-group">
+                                <label for="direct-feedback-comment">
+                                    Comentario o sugerencia
+                                </label>
+
+                                <textarea id="direct-feedback-comment"
+                                          rows="5"
+                                          maxlength="500"
+                                          placeholder="Escriba aquí su comentario directo"></textarea>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit"
+                                        class="btn btn-primary"
+                                        id="btn-direct-feedback-submit">
+                                    Enviar feedback
+                                </button>
+                            </div>
                         </form>
                     </div>
 
